@@ -1,11 +1,21 @@
 
 export const ACTIONS = {
+    LOAD_DATA: 'LOAD_DATA',
     ADD_TO_CONVERTER: 'ADD_TO_CONVERTER',
     GET_EXCHANGE_RATE: 'GET_EXCHANGE_RATE',
     GET_HISTORY: 'GET_HISTORY',
     TOGGLE_HISTORY: 'TOGGLE_HISTORY'
 }
 
+/*
+* Updating Initial state
+*/
+export function loadDate(data){
+    return{
+        type: ACTIONS.LOAD_DATA,
+        data
+    }
+}
 
 /*
 * Updating selected currency

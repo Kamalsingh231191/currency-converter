@@ -8,7 +8,7 @@ export default class Graph extends React.Component{
     render(){
         const options = {
               title: {
-                text: this.props.from+ " to "+this.props.to
+                text: ` ${this.props.from} to ${this.props.to} `
               },
               axisY:{
                       includeZero: false  //try changing it to true
