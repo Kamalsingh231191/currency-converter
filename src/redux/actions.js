@@ -11,7 +11,7 @@ export const ACTIONS = {
 * Updating Initial state
 */
 export function loadDate(data){
-    return{
+    return {
         type: ACTIONS.LOAD_DATA,
         data
     }
@@ -28,18 +28,28 @@ export function selectCurrency(index,key){
     }
 }
 
+
+/*
+* get exchange rates
+*/
 export function getExchangeRate(){
     return{
         type: ACTIONS.GET_EXCHANGE_RATE
     }
 }
 
+/*
+* get past history rates
+*/
 export function getHistory(){
     return{
         type: ACTIONS.GET_HISTORY
     }
 }
 
+/*
+* toggle graph
+*/
 export function toggleHistory(){
     return{
         type: ACTIONS.TOGGLE_HISTORY
