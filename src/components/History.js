@@ -18,12 +18,12 @@ class History extends React.Component{
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <hr data-content="Past one week history" className="hr-text"></hr>
+                        <hr data-content="Past one week history" className="hr-text" />
                     </div>
                 </div>
                 <Button showHistory={this.props.showHistory} onClick={()=>this.handleClick()}/>
                 <Graph showHistory={this.props.showHistory} data={this.props.data} from={this.props.from} to={this.props.to}/>
-                <hr class="solid"></hr>
+                <hr className="solid" />
             </div>
         );
     }
