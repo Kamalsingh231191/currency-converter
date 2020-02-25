@@ -6,11 +6,11 @@ class Currencies extends React.Component {
 
     constructor(props){
         super(props);
-        this.handleClickFrom = this.handleClickFrom.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.swapCurrency = this.swapCurrency.bind(this);
     }
 
-    handleClickFrom(event){
+    handleChange(event){
         this.props.selectCurrency(event.target.value, event.target.id);
         this.props.getExchangeRate();
     }
@@ -23,6 +23,7 @@ class Currencies extends React.Component {
     }
 
     render(){
+
         return(
             <form>
                 <div className="container">
@@ -34,11 +35,11 @@ class Currencies extends React.Component {
                     </div>
                     <div className="row text-center">
                         <div className="col-5">
-                            <select className="custom-select" id='from' value={this.props.currencies.find((x)=> x.from).index} onChange={this.handleClickFrom}>
+                            <select className="custom-select" id='from' onChange={this.handleChange}  value={this.props.from} >
                                 {
-                                    this.props.currencies.map((currency,index) => {
+                                    this.props.currencies.map((currency) => {
                                         if(!currency.to){
-                                            return <option key={index} value={index} >{currency.name}</option>
+                                            return <option key={currency.uid} value={currency.uid} >{currency.name}</option>
                                         }
                                          return null;
                                     })
@@ -49,11 +50,11 @@ class Currencies extends React.Component {
                             <i className="fa fa-exchange" aria-hidden="true" onClick={this.swapCurrency}></i>
                         </div>
                         <div className="col-5">
-                            <select className="custom-select" id='to' value={this.props.currencies.find((x)=> x.to).index} onChange={this.handleClickFrom} >
+                            <select className="custom-select" id='to' value={this.props.to} onChange={this.handleChange}>
                                {
-                                   this.props.currencies.map((currency,index) => {
+                                   this.props.currencies.map((currency) => {
                                        if(!currency.from){
-                                           return <option key={index} value={index} >{currency.name}</option>
+                                           return <option key={currency.uid} value={currency.uid} >{currency.name}</option>
                                        }
                                        return null;
                                    })
@@ -68,8 +69,11 @@ class Currencies extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+
     return {
-        currencies: state.currencies
+        currencies: state.currencies,
+        from: state.currencies.find((x)=> x.from).uid,
+        to: state.currencies.find((x)=> x.to).uid
     };
 
 }

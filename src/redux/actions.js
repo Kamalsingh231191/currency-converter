@@ -20,10 +20,10 @@ export function loadDate(data){
 /*
 * Updating selected currency
 */
-export function selectCurrency(index,key){
+export function selectCurrency(uid,key){
     return {
         type: ACTIONS.ADD_TO_CONVERTER,
-        index,
+        uid,
         key
     }
 }

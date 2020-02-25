@@ -9,8 +9,8 @@ export default (state = INITIAL_STATE, action) => {
             return Object.assign({}, state , action.data);
         case ACTIONS.ADD_TO_CONVERTER:
             return Object.assign({}, state,{
-                currencies: state.currencies.map((currency,index) => {
-                    if(Number(action.index) === index){
+                currencies: state.currencies.map((currency) => {
+                    if(Number(action.uid) === currency.uid){
                         currency[action.key] = true;
                     }else{
                         currency[action.key] = false;

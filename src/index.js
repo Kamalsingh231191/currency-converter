@@ -9,7 +9,7 @@ import { loadDate } from './redux/actions';
 
 /*Loading currency value from server*/
 (async () => {
-    let getData =  fetch('https://api.jsonbin.io/b/5e53c2e5f3a8355590529463',{
+    let getData =  fetch('https://api.jsonbin.io/b/5e53c2e5f3a8355590529463/1',{
             headers: {
                 'secret-key': '$2b$10$FQn64OILJypX5/oP5CmtVubX8qhXEyvfuYHlHZ4qGklCsd1k2Yk3G'
             }
