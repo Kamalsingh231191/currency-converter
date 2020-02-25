@@ -17,7 +17,7 @@ class History extends React.Component{
         return(
             <div className="container">
                 <div className="row">
-                    <div className="col">
+                    <div className="col text-center">
                         <hr data-content="Past one week history" className="hr-text" />
                     </div>
                 </div>
