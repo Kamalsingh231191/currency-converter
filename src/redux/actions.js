@@ -10,7 +10,7 @@ export const ACTIONS = {
 /*
 * Updating Initial state
 */
-export function loadDate(data){
+export function loadData(data){
     return {
         type: ACTIONS.LOAD_DATA,
         data
@@ -32,7 +32,7 @@ export function selectCurrency(uid,key){
 /*
 * get exchange rates
 */
-export function getExchangeRate(){
+    export function getExchangeRate(){
     return{
         type: ACTIONS.GET_EXCHANGE_RATE
     }

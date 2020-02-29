@@ -5,7 +5,7 @@ import store from './redux/store';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { loadDate } from './redux/actions';
+import { loadData } from './redux/actions';
 
 /*Loading currency value from server*/
 (async () => {
@@ -19,7 +19,7 @@ import { loadDate } from './redux/actions';
        });
 
     let currencies = await getData;
-    store.dispatch(loadDate(currencies));
+    store.dispatch(loadData(currencies));
     ReactDOM.render(<Provider store={store} ><App /></Provider>, document.getElementById('root'));
 })();
 
