@@ -34,7 +34,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
   "jest": {
     "testRegex": "((\\.|/*.)(test))\\.js?$"
   }

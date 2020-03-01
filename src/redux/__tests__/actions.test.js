@@ -1,12 +1,11 @@
-import { ACTIONS, loadData, selectCurrency, getExchangeRate, getHistory, toggleHistory} from '../actions.js';
+import { ACTIONS, loadData, selectCurrency, getExchangeRate, toggleHistory} from '../actions.js';
 import { INITIAL_DATA } from './currencyTestData';
 
-describe('actions', () => {
-    let initData = INITIAL_DATA;
+describe('--- Actions ---', () => {
 
     /*testing load data*/
     test('test_load_data', () => {
-        expect(loadData(initData)).toEqual({
+        expect(loadData(INITIAL_DATA)).toEqual({
             type: ACTIONS.LOAD_DATA,
             data: INITIAL_DATA
         });
@@ -31,12 +30,6 @@ describe('actions', () => {
     test('test_get_exchange_rates', () => {
         expect(getExchangeRate()).toEqual({
             type: ACTIONS.GET_EXCHANGE_RATE
-        })
-    })
-
-    test('test_get_history', () => {
-        expect(getHistory()).toEqual({
-            type: ACTIONS.GET_HISTORY
         })
     })
 

@@ -1,4 +1,4 @@
-export const data = {
+export  const INITIAL_DATA = {
                               "currencies": [
                                 {
                                   "uid": 1,

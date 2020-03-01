@@ -6,20 +6,16 @@ export default (state = INITIAL_STATE, action) => {
     let from, to;
     switch(action.type){
         case ACTIONS.LOAD_DATA:
-            return Object.assign({}, state , action.data);
+            return Object.assign({}, action.data);
         case ACTIONS.ADD_TO_CONVERTER:
             return Object.assign({}, state,{
                 currencies: state.currencies.map((currency) => {
-                    if(Number(action.uid) === currency.uid){
-                        currency[action.key] = true;
-                    }else{
-                        currency[action.key] = false;
-                    }
-                    return currency;
+                    let obj = {...currency} ;
+                    obj[action.key] = (Number(action.uid) === currency.uid) ? true : false;
+                    return obj;
                 })
             });
         case ACTIONS.GET_EXCHANGE_RATE:
-            //added IE polyfill for array.find
             from = state.currencies.find((currency) => currency.from );
             to = state.currencies.find((currency) => currency.to );
             return Object.assign({}, state ,{
@@ -30,23 +26,6 @@ export default (state = INITIAL_STATE, action) => {
                     exchangeRate: ((from, to) => {
                         return ( to / from ).toFixed(2)
                     })(from.index,to.index),
-                    lastWeekHistory: ((fromHistory, toHistory) => {
-                        return fromHistory.map((day,index) => {
-                            if(fromHistory[index] && toHistory[index]){
-                                return ( toHistory[index] / fromHistory[index] ).toFixed(7)
-                            }else{
-                                return 0;
-                            }
-                        })
-                    })(from.lastWeek,to.lastWeek)
-                }
-            })
-        case ACTIONS.GET_HISTORY:
-            from = state.currencies.find((currency) => currency.from );
-            to = state.currencies.find((currency) => currency.to );
-            return Object.assign({}, state ,{
-                converter: {
-                    ...state.converter,
                     lastWeekHistory: ((fromHistory, toHistory) => {
                         return fromHistory.map((day,index) => {
                             if(fromHistory[index] && toHistory[index]){

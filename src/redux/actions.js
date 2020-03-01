@@ -3,7 +3,6 @@ export const ACTIONS = {
     LOAD_DATA: 'LOAD_DATA',
     ADD_TO_CONVERTER: 'ADD_TO_CONVERTER',
     GET_EXCHANGE_RATE: 'GET_EXCHANGE_RATE',
-    GET_HISTORY: 'GET_HISTORY',
     TOGGLE_HISTORY: 'TOGGLE_HISTORY'
 }
 
@@ -35,15 +34,6 @@ export function selectCurrency(uid,key){
     export function getExchangeRate(){
     return{
         type: ACTIONS.GET_EXCHANGE_RATE
-    }
-}
-
-/*
-* get past history rates
-*/
-export function getHistory(){
-    return{
-        type: ACTIONS.GET_HISTORY
     }
 }
 
